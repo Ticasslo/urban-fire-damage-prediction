@@ -1,0 +1,15 @@
+# Data and models downloaded or saved by the notebooks
+*.csv
+models/
+
+# Python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Word lock files
+~$*
+
+# OS
+.DS_Store
+Thumbs.db
