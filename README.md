@@ -68,8 +68,8 @@ Trained only on fires with a loss above zero (149,047), with `log(1 + TOTAL_LOSS
 
 | Model | Test R² (log) | Test R² (dollars) | Test MAE (dollars) |
 |---|---|---|---|
-| Linear Regression | 0.314 | -0.008 | $40,271 |
-| Random Forest | 0.455 | 0.050 | $36,770 |
+| Linear Regression | 0.3142 | -0.0079 | $40,271 |
+| Random Forest | 0.4545 | 0.0501 | $36,770 |
 
 ![Actual vs predicted log loss on the test set for both models](assets/nfirs_actual_vs_predicted.png)
 
@@ -83,8 +83,8 @@ Same approach on the Toronto data: severity thresholds from the quartiles of pos
 |---|---|---|
 | Severity | Logistic Regression | accuracy 0.457, macro F1 0.452 |
 | Severity | Random Forest | accuracy 0.568, macro F1 0.547 |
-| Loss (9,769 fires with loss > 0) | Linear Regression | R² 0.308 (log), 0.036 (dollars) |
-| Loss | Random Forest | R² 0.469 (log), 0.219 (dollars); train R² (log) 0.836 |
+| Loss (9,769 fires with loss > 0) | Linear Regression | R² 0.3082 (log), 0.0363 (dollars) |
+| Loss | Random Forest | R² 0.4694 (log), 0.2188 (dollars); train R² (log) 0.8357 |
 
 ![Toronto: property types with the highest average estimated loss](assets/toronto_loss_by_property_use.png)
 
@@ -99,7 +99,7 @@ The San Francisco data mixes fires with medical calls, alarms and other incident
 - **Fire spread and extent of fire are only known after the fire.** They are among the strongest features, so these models describe the damage of a fire that already happened rather than predict it beforehand.
 - Missing values were filled with "Not Reported", and that label covers 40 to 48% of the rows for several NFIRS features (cause, heat source, structure type, fire spread, detectors).
 - Label encoding gives categories an arbitrary order, which does not suit Logistic and Linear Regression well.
-- The Toronto Random Forest regressor overfits (train R² 0.836 vs test 0.469 on the log scale), and no hyperparameter tuning or cross validation was done.
+- The Toronto Random Forest regressor overfits (train R² 0.8357 vs test 0.4694 on the log scale), and no hyperparameter tuning or cross validation was done.
 - Dollar losses are predicted poorly by every model.
 - NFIRS reporting is voluntary, so it does not cover every fire in the US.
 
